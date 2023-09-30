@@ -233,13 +233,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarAlunosLayout.setVerticalGroup(
             panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemoverUsuario1)
-                    .addComponent(btnAdicionarUsuario1))
+                    .addComponent(btnAdicionarUsuario1)
+                    .addComponent(btnRemoverUsuario1))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar1)
-                .addGap(47, 47, 47))
+                .addGap(56, 56, 56))
         );
 
         btnAdicionarUsuario.setText("Adicionar Usuário");
