@@ -488,7 +488,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 new MenuPrincipal().setVisible(true);
             }
         });
-        new Usuario("admin", "admin", "12345", TipoUsuario.ADMIN);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
