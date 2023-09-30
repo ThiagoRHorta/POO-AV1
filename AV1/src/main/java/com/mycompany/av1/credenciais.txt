@@ -1,2 +1,1 @@
 admin,admin,12345,ADMIN
-teste,teste,teste,NORMAL
