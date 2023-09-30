@@ -220,26 +220,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarAlunosLayout.setHorizontalGroup(
             panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(btnAdicionarUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRemoverUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                .addGap(37, 37, 37))
-            .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(btnVoltar1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(btnAdicionarUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemoverUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(btnVoltar1)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         panelGerenciarAlunosLayout.setVerticalGroup(
             panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionarUsuario1)
                     .addComponent(btnRemoverUsuario1))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar1)
-                .addGap(56, 56, 56))
+                .addGap(58, 58, 58))
         );
 
         btnAdicionarUsuario.setText("Adicionar Usuário");
