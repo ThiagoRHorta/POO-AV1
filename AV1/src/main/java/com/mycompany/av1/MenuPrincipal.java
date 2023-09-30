@@ -11,6 +11,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         panelMenuPrincipal.setVisible(false);
         panelGerenciarUsuarios.setVisible(false);
+        panelGerenciarAlunos.setVisible(false);
+        panelGerenciarProfessores.setVisible(false);
     }
 
     /**
@@ -34,10 +36,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnGerenciarAlunos = new javax.swing.JButton();
         btnGerenciarProfessores = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        panelGerenciarAlunos = new javax.swing.JPanel();
+        btnVoltar1 = new javax.swing.JButton();
+        btnAdicionarUsuario1 = new javax.swing.JButton();
+        btnRemoverUsuario1 = new javax.swing.JButton();
         panelGerenciarUsuarios = new javax.swing.JPanel();
         btnAdicionarUsuario = new javax.swing.JButton();
         btnRemoverUsuario = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        panelGerenciarProfessores = new javax.swing.JPanel();
+        btnAdicionarProfessor = new javax.swing.JButton();
+        btnRemoverProfessor = new javax.swing.JButton();
+        btnVoltar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +132,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btnGerenciarAlunos.setText("Gerenciar Alunos");
+        btnGerenciarAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGerenciarAlunosMouseClicked(evt);
+            }
+        });
         btnGerenciarAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerenciarAlunosActionPerformed(evt);
@@ -129,6 +144,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btnGerenciarProfessores.setText("Gerenciar Professores");
+        btnGerenciarProfessores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGerenciarProfessoresMouseClicked(evt);
+            }
+        });
         btnGerenciarProfessores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerenciarProfessoresActionPerformed(evt);
@@ -179,6 +199,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltar1MouseClicked(evt);
+            }
+        });
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
+
+        btnAdicionarUsuario1.setText("Adicionar Aluno");
+
+        btnRemoverUsuario1.setText("Remover Aluno");
+
+        javax.swing.GroupLayout panelGerenciarAlunosLayout = new javax.swing.GroupLayout(panelGerenciarAlunos);
+        panelGerenciarAlunos.setLayout(panelGerenciarAlunosLayout);
+        panelGerenciarAlunosLayout.setHorizontalGroup(
+            panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnAdicionarUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRemoverUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addGap(37, 37, 37))
+            .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(btnVoltar1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelGerenciarAlunosLayout.setVerticalGroup(
+            panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRemoverUsuario1)
+                    .addComponent(btnAdicionarUsuario1))
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar1)
+                .addGap(47, 47, 47))
+        );
+
         btnAdicionarUsuario.setText("Adicionar Usuário");
 
         btnRemoverUsuario.setText("Remover Usuário");
@@ -222,6 +285,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
+        btnAdicionarProfessor.setText("Adicionar Professor");
+
+        btnRemoverProfessor.setText("Remover Professor");
+
+        btnVoltar2.setText("Voltar");
+        btnVoltar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltar2MouseClicked(evt);
+            }
+        });
+        btnVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelGerenciarProfessoresLayout = new javax.swing.GroupLayout(panelGerenciarProfessores);
+        panelGerenciarProfessores.setLayout(panelGerenciarProfessoresLayout);
+        panelGerenciarProfessoresLayout.setHorizontalGroup(
+            panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnAdicionarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemoverProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
+            .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(btnVoltar2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelGerenciarProfessoresLayout.setVerticalGroup(
+            panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdicionarProfessor)
+                    .addComponent(btnRemoverProfessor))
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar2)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,6 +337,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(panelMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelGerenciarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelGerenciarAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelGerenciarProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,6 +352,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(panelMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelGerenciarUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelGerenciarAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelGerenciarProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
@@ -306,6 +426,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelMenuPrincipal.setVisible(true);
     }//GEN-LAST:event_btnVoltarMouseClicked
 
+    private void btnVoltar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltar1MouseClicked
+        panelGerenciarAlunos.setVisible(false);
+        panelMenuPrincipal.setVisible(true);
+    }//GEN-LAST:event_btnVoltar1MouseClicked
+
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
+
+    private void btnGerenciarAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerenciarAlunosMouseClicked
+        panelMenuPrincipal.setVisible(false);
+        panelGerenciarAlunos.setVisible(true);
+    }//GEN-LAST:event_btnGerenciarAlunosMouseClicked
+
+    private void btnVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltar2MouseClicked
+        panelGerenciarProfessores.setVisible(false);
+        panelMenuPrincipal.setVisible(true);
+    }//GEN-LAST:event_btnVoltar2MouseClicked
+
+    private void btnVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltar2ActionPerformed
+
+    private void btnGerenciarProfessoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerenciarProfessoresMouseClicked
+        panelMenuPrincipal.setVisible(false);
+        panelGerenciarProfessores.setVisible(true);
+    }//GEN-LAST:event_btnGerenciarProfessoresMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -343,17 +491,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarProfessor;
     private javax.swing.JButton btnAdicionarUsuario;
+    private javax.swing.JButton btnAdicionarUsuario1;
     private javax.swing.JButton btnGerenciarAlunos;
     private javax.swing.JButton btnGerenciarProfessores;
     private javax.swing.JButton btnGerenciarUsuarios;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnRemoverProfessor;
     private javax.swing.JButton btnRemoverUsuario;
+    private javax.swing.JButton btnRemoverUsuario1;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar1;
+    private javax.swing.JButton btnVoltar2;
     private javax.swing.JPasswordField inputSenha;
     private javax.swing.JTextField inputUsuario;
     private javax.swing.JLabel menuLabel;
+    private javax.swing.JPanel panelGerenciarAlunos;
+    private javax.swing.JPanel panelGerenciarProfessores;
     private javax.swing.JPanel panelGerenciarUsuarios;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMenuPrincipal;
