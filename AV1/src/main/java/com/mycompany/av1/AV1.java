@@ -32,11 +32,11 @@ public class AV1 {
     }   
     
     public static void main(String[] args) {
-        //Iniciar tela
-        MenuPrincipal.main(args);
-        
         //Inicializar o programa com um login de adm
         criarAdmin();
+        
+        //Iniciar tela
+        MenuPrincipal.main(args);
     }
     
 }
