@@ -508,12 +508,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="inputSenhaAddUsuario" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="tipoProfessorAddUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="tipoAdminAddUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tipoAlunoAddUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="tipoOperAddUsuario" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="176" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -543,9 +541,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tipoAddUsuarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tipoOperAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tipoAdminAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tipoProfessorAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tipoAlunoAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -598,28 +595,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltar6ActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JRadioButton" name="tipoOperAddUsuario">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Oper"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JRadioButton" name="tipoAdminAddUsuario">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Professor"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="tipoProfessorAddUsuario">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="buttonGroup1"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Admin"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="tipoAlunoAddUsuario">
-          <Properties>
-            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="buttonGroup1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Aluno"/>
           </Properties>
         </Component>
       </SubComponents>

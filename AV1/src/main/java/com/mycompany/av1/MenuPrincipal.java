@@ -62,9 +62,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inputSenhaAddUsuario = new javax.swing.JPasswordField();
         btnAdicionar = new javax.swing.JButton();
         btnVoltar6 = new javax.swing.JButton();
+        tipoOperAddUsuario = new javax.swing.JRadioButton();
         tipoAdminAddUsuario = new javax.swing.JRadioButton();
-        tipoProfessorAddUsuario = new javax.swing.JRadioButton();
-        tipoAlunoAddUsuario = new javax.swing.JRadioButton();
         panelGerenciarAlunos = new javax.swing.JPanel();
         btnAdicionarAluno = new javax.swing.JButton();
         btnRemoverAluno = new javax.swing.JButton();
@@ -378,14 +377,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(tipoOperAddUsuario);
+        tipoOperAddUsuario.setText("Oper");
+
         buttonGroup1.add(tipoAdminAddUsuario);
-        tipoAdminAddUsuario.setText("Professor");
-
-        buttonGroup1.add(tipoProfessorAddUsuario);
-        tipoProfessorAddUsuario.setText("Admin");
-
-        buttonGroup1.add(tipoAlunoAddUsuario);
-        tipoAlunoAddUsuario.setText("Aluno");
+        tipoAdminAddUsuario.setText("Admin");
 
         javax.swing.GroupLayout panelAdicionarUsuariosLayout = new javax.swing.GroupLayout(panelAdicionarUsuarios);
         panelAdicionarUsuarios.setLayout(panelAdicionarUsuariosLayout);
@@ -416,12 +412,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inputSenhaAddUsuario)
                             .addGroup(panelAdicionarUsuariosLayout.createSequentialGroup()
-                                .addComponent(tipoProfessorAddUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tipoAdminAddUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tipoAlunoAddUsuario)
-                                .addGap(0, 72, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tipoOperAddUsuario)
+                                .addGap(0, 176, Short.MAX_VALUE)))))
                 .addGap(35, 35, 35))
         );
         panelAdicionarUsuariosLayout.setVerticalGroup(
@@ -442,9 +436,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoAddUsuarioLabel)
-                    .addComponent(tipoAdminAddUsuario)
-                    .addComponent(tipoProfessorAddUsuario)
-                    .addComponent(tipoAlunoAddUsuario))
+                    .addComponent(tipoOperAddUsuario)
+                    .addComponent(tipoAdminAddUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionar)
@@ -1204,8 +1197,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel senhaLabel;
     private javax.swing.JLabel tipoAddUsuarioLabel;
     private javax.swing.JRadioButton tipoAdminAddUsuario;
-    private javax.swing.JRadioButton tipoAlunoAddUsuario;
-    private javax.swing.JRadioButton tipoProfessorAddUsuario;
+    private javax.swing.JRadioButton tipoOperAddUsuario;
     private javax.swing.JLabel usuarioAddUsuarioAlunos;
     private javax.swing.JLabel usuarioAddUsuarioLabel;
     private javax.swing.JLabel usuarioAddUsuarioProfessores;
