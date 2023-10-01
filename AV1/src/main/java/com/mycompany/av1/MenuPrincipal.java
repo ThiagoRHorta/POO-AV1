@@ -31,8 +31,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
         panelLogin = new javax.swing.JPanel();
         usuarioLabel = new javax.swing.JLabel();
         senhaLabel = new javax.swing.JLabel();
@@ -80,15 +78,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         nomeAddUsuarioAlunos = new javax.swing.JLabel();
         usuarioAddUsuarioAlunos = new javax.swing.JLabel();
         senhaAddUsuarioAlunos = new javax.swing.JLabel();
-        tipoAddUsuarioAlunos = new javax.swing.JLabel();
         inputNomeAddAlunos = new javax.swing.JTextField();
         inputUsuarioAddAlunos = new javax.swing.JTextField();
         inputSenhaAddAlunos = new javax.swing.JPasswordField();
         btnAdicionar1 = new javax.swing.JButton();
         btnVoltar7 = new javax.swing.JButton();
-        tipoAdminAddAlunos = new javax.swing.JRadioButton();
-        tipoProfessorAddAlunos = new javax.swing.JRadioButton();
-        tipoAlunoAddAlunos = new javax.swing.JRadioButton();
         panelGerenciarProfessores = new javax.swing.JPanel();
         btnAdicionarProfessor = new javax.swing.JButton();
         btnRemoverProfessor = new javax.swing.JButton();
@@ -102,15 +96,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         nomeAddUsuarioProfessores = new javax.swing.JLabel();
         usuarioAddUsuarioProfessores = new javax.swing.JLabel();
         senhaAddUsuarioProfessores = new javax.swing.JLabel();
-        tipoAddUsuarioProfessores = new javax.swing.JLabel();
         inputNomeAddProfessores = new javax.swing.JTextField();
         inputUsuarioAddProfessores = new javax.swing.JTextField();
         inputSenhaAddProfessores = new javax.swing.JPasswordField();
         btnAdicionar2 = new javax.swing.JButton();
         btnVoltar8 = new javax.swing.JButton();
-        tipoAdminAddProfessores = new javax.swing.JRadioButton();
-        tipoProfessorAddProfessores = new javax.swing.JRadioButton();
-        tipoAlunoAddProfessores = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -388,13 +378,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup2.add(tipoAdminAddUsuario);
+        buttonGroup1.add(tipoAdminAddUsuario);
         tipoAdminAddUsuario.setText("Professor");
 
-        buttonGroup2.add(tipoProfessorAddUsuario);
+        buttonGroup1.add(tipoProfessorAddUsuario);
         tipoProfessorAddUsuario.setText("Admin");
 
-        buttonGroup2.add(tipoAlunoAddUsuario);
+        buttonGroup1.add(tipoAlunoAddUsuario);
         tipoAlunoAddUsuario.setText("Aluno");
 
         javax.swing.GroupLayout panelAdicionarUsuariosLayout = new javax.swing.GroupLayout(panelAdicionarUsuarios);
@@ -573,8 +563,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         senhaAddUsuarioAlunos.setText("Senha");
 
-        tipoAddUsuarioAlunos.setText("Tipo");
-
         btnAdicionar1.setText("Adicionar");
 
         btnVoltar7.setText("Voltar");
@@ -589,15 +577,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(tipoAdminAddAlunos);
-        tipoAdminAddAlunos.setText("Professor");
-
-        buttonGroup1.add(tipoProfessorAddAlunos);
-        tipoProfessorAddAlunos.setText("Admin");
-
-        buttonGroup1.add(tipoAlunoAddAlunos);
-        tipoAlunoAddAlunos.setText("Aluno");
-
         javax.swing.GroupLayout panelAdicionarAlunosLayout = new javax.swing.GroupLayout(panelAdicionarAlunos);
         panelAdicionarAlunos.setLayout(panelAdicionarAlunosLayout);
         panelAdicionarAlunosLayout.setHorizontalGroup(
@@ -609,30 +588,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(nomeAddUsuarioAlunos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(inputNomeAddAlunos))
-                    .addGroup(panelAdicionarAlunosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAdicionar1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVoltar7)
-                        .addGap(5, 5, 5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarAlunosLayout.createSequentialGroup()
                         .addComponent(usuarioAddUsuarioAlunos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inputUsuarioAddAlunos))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarAlunosLayout.createSequentialGroup()
-                        .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(senhaAddUsuarioAlunos)
-                            .addComponent(tipoAddUsuarioAlunos))
+                        .addComponent(senhaAddUsuarioAlunos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputSenhaAddAlunos)
                             .addGroup(panelAdicionarAlunosLayout.createSequentialGroup()
-                                .addComponent(tipoProfessorAddAlunos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tipoAdminAddAlunos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tipoAlunoAddAlunos)
-                                .addGap(0, 72, Short.MAX_VALUE)))))
+                                .addComponent(btnAdicionar1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addComponent(btnVoltar7))
+                            .addComponent(inputSenhaAddAlunos))))
                 .addGap(35, 35, 35))
         );
         panelAdicionarAlunosLayout.setVerticalGroup(
@@ -652,15 +620,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(inputSenhaAddAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoAddUsuarioAlunos)
-                    .addComponent(tipoAdminAddAlunos)
-                    .addComponent(tipoProfessorAddAlunos)
-                    .addComponent(tipoAlunoAddAlunos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionar1)
                     .addComponent(btnVoltar7))
-                .addGap(5, 5, 5))
+                .addGap(35, 35, 35))
         );
 
         btnAdicionarProfessor.setText("Adicionar Professor");
@@ -779,8 +741,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         senhaAddUsuarioProfessores.setText("Senha");
 
-        tipoAddUsuarioProfessores.setText("Tipo");
-
         btnAdicionar2.setText("Adicionar");
 
         btnVoltar8.setText("Voltar");
@@ -795,15 +755,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup3.add(tipoAdminAddProfessores);
-        tipoAdminAddProfessores.setText("Professor");
-
-        buttonGroup3.add(tipoProfessorAddProfessores);
-        tipoProfessorAddProfessores.setText("Admin");
-
-        buttonGroup3.add(tipoAlunoAddProfessores);
-        tipoAlunoAddProfessores.setText("Aluno");
-
         javax.swing.GroupLayout panelAdicionarProfessoresLayout = new javax.swing.GroupLayout(panelAdicionarProfessores);
         panelAdicionarProfessores.setLayout(panelAdicionarProfessoresLayout);
         panelAdicionarProfessoresLayout.setHorizontalGroup(
@@ -815,30 +766,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(nomeAddUsuarioProfessores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(inputNomeAddProfessores))
-                    .addGroup(panelAdicionarProfessoresLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAdicionar2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVoltar8)
-                        .addGap(5, 5, 5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarProfessoresLayout.createSequentialGroup()
                         .addComponent(usuarioAddUsuarioProfessores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inputUsuarioAddProfessores))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarProfessoresLayout.createSequentialGroup()
-                        .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(senhaAddUsuarioProfessores)
-                            .addComponent(tipoAddUsuarioProfessores))
+                        .addComponent(senhaAddUsuarioProfessores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputSenhaAddProfessores)
                             .addGroup(panelAdicionarProfessoresLayout.createSequentialGroup()
-                                .addComponent(tipoProfessorAddProfessores)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tipoAdminAddProfessores)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tipoAlunoAddProfessores)
-                                .addGap(0, 72, Short.MAX_VALUE)))))
+                                .addComponent(btnAdicionar2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addComponent(btnVoltar8))
+                            .addComponent(inputSenhaAddProfessores))))
                 .addGap(35, 35, 35))
         );
         panelAdicionarProfessoresLayout.setVerticalGroup(
@@ -856,17 +796,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senhaAddUsuarioProfessores)
                     .addComponent(inputSenhaAddProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
                 .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoAddUsuarioProfessores)
-                    .addComponent(tipoAdminAddProfessores)
-                    .addComponent(tipoProfessorAddProfessores)
-                    .addComponent(tipoAlunoAddProfessores))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionar2)
-                    .addComponent(btnVoltar8))
-                .addGap(5, 5, 5))
+                    .addComponent(btnVoltar8)
+                    .addComponent(btnAdicionar2))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1138,8 +1072,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inputUsuarioAddAlunos.setText("");
         inputSenhaAddAlunos.setText("");
         
-        buttonGroup2.clearSelection(); //NÃO ESTA 'LIMPANDO' A SELEÇÃO DO BUTTONGROUP QUANDO CLICA EM VOLTAR
-        
         panelGerenciarAlunos.setVisible(true);
     }//GEN-LAST:event_btnVoltar7MouseClicked
 
@@ -1158,8 +1090,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inputNomeAddProfessores.setText("");
         inputUsuarioAddProfessores.setText("");
         inputSenhaAddProfessores.setText("");
-        
-        buttonGroup3.clearSelection(); //NÃO ESTA 'LIMPANDO' A SELEÇÃO DO BUTTONGROUP QUANDO CLICA EM VOLTAR
         
         panelGerenciarProfessores.setVisible(true);
     }//GEN-LAST:event_btnVoltar8MouseClicked
@@ -1236,8 +1166,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar7;
     private javax.swing.JButton btnVoltar8;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JTextField inputNomeAddAlunos;
     private javax.swing.JTextField inputNomeAddProfessores;
     private javax.swing.JTextField inputNomeAddUsuario;
@@ -1274,17 +1202,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel senhaAddUsuarioLabel;
     private javax.swing.JLabel senhaAddUsuarioProfessores;
     private javax.swing.JLabel senhaLabel;
-    private javax.swing.JLabel tipoAddUsuarioAlunos;
     private javax.swing.JLabel tipoAddUsuarioLabel;
-    private javax.swing.JLabel tipoAddUsuarioProfessores;
-    private javax.swing.JRadioButton tipoAdminAddAlunos;
-    private javax.swing.JRadioButton tipoAdminAddProfessores;
     private javax.swing.JRadioButton tipoAdminAddUsuario;
-    private javax.swing.JRadioButton tipoAlunoAddAlunos;
-    private javax.swing.JRadioButton tipoAlunoAddProfessores;
     private javax.swing.JRadioButton tipoAlunoAddUsuario;
-    private javax.swing.JRadioButton tipoProfessorAddAlunos;
-    private javax.swing.JRadioButton tipoProfessorAddProfessores;
     private javax.swing.JRadioButton tipoProfessorAddUsuario;
     private javax.swing.JLabel usuarioAddUsuarioAlunos;
     private javax.swing.JLabel usuarioAddUsuarioLabel;
