@@ -1,5 +1,6 @@
 package com.mycompany.av1;
 
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
@@ -64,6 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnVoltar6 = new javax.swing.JButton();
         tipoOperAddUsuario = new javax.swing.JRadioButton();
         tipoAdminAddUsuario = new javax.swing.JRadioButton();
+        tipoAlunoAddUsuario = new javax.swing.JRadioButton();
         panelGerenciarAlunos = new javax.swing.JPanel();
         btnAdicionarAluno = new javax.swing.JButton();
         btnRemoverAluno = new javax.swing.JButton();
@@ -364,6 +366,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tipoAddUsuarioLabel.setText("Tipo");
 
         btnAdicionar.setText("Adicionar");
+        btnAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdicionarMouseClicked(evt);
+            }
+        });
 
         btnVoltar6.setText("Voltar");
         btnVoltar6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -379,9 +386,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         buttonGroup1.add(tipoOperAddUsuario);
         tipoOperAddUsuario.setText("Oper");
+        tipoOperAddUsuario.setActionCommand("OPER");
+        tipoOperAddUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoOperAddUsuarioActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(tipoAdminAddUsuario);
         tipoAdminAddUsuario.setText("Admin");
+        tipoAdminAddUsuario.setActionCommand("ADMIN");
+        tipoAdminAddUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoAdminAddUsuarioActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(tipoAlunoAddUsuario);
+        tipoAlunoAddUsuario.setText("Aluno");
+        tipoAlunoAddUsuario.setActionCommand("ALUNO");
 
         javax.swing.GroupLayout panelAdicionarUsuariosLayout = new javax.swing.GroupLayout(panelAdicionarUsuarios);
         panelAdicionarUsuarios.setLayout(panelAdicionarUsuariosLayout);
@@ -415,7 +438,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(tipoAdminAddUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tipoOperAddUsuario)
-                                .addGap(0, 176, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tipoAlunoAddUsuario)
+                                .addGap(0, 115, Short.MAX_VALUE)))))
                 .addGap(35, 35, 35))
         );
         panelAdicionarUsuariosLayout.setVerticalGroup(
@@ -437,7 +462,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoAddUsuarioLabel)
                     .addComponent(tipoOperAddUsuario)
-                    .addComponent(tipoAdminAddUsuario))
+                    .addComponent(tipoAdminAddUsuario)
+                    .addComponent(tipoAlunoAddUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionar)
@@ -557,6 +583,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         senhaAddUsuarioAlunos.setText("Senha");
 
         btnAdicionar1.setText("Adicionar");
+        btnAdicionar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdicionar1MouseClicked(evt);
+            }
+        });
 
         btnVoltar7.setText("Voltar");
         btnVoltar7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -735,6 +766,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         senhaAddUsuarioProfessores.setText("Senha");
 
         btnAdicionar2.setText("Adicionar");
+        btnAdicionar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdicionar2MouseClicked(evt);
+            }
+        });
 
         btnVoltar8.setText("Voltar");
         btnVoltar8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -941,8 +977,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnGerenciarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerenciarUsuariosMouseClicked
-        panelMenuPrincipal.setVisible(false);
-        panelGerenciarUsuarios.setVisible(true);
+        String usuarioLogin = inputUsuario.getText();
+        Usuario user = Usuario.usuarios.get(usuarioLogin.toLowerCase());
+        
+        if(user.getTipo().permUsuario(TipoUsuario.ADMIN)){
+            panelMenuPrincipal.setVisible(false);
+            panelGerenciarUsuarios.setVisible(true);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Somente ADMINISTRADORES podem gerenciar usuários!");
     }//GEN-LAST:event_btnGerenciarUsuariosMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -955,8 +998,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarMouseClicked
 
     private void btnGerenciarAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerenciarAlunosMouseClicked
-        panelMenuPrincipal.setVisible(false);
-        panelGerenciarAlunos.setVisible(true);
+        String usuarioLogin = inputUsuario.getText();
+        Usuario user = Usuario.usuarios.get(usuarioLogin.toLowerCase());
+        
+        if(user.getTipo().permUsuario(TipoUsuario.OPER)){
+            panelMenuPrincipal.setVisible(false);
+            panelGerenciarAlunos.setVisible(true);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Somente ADMINISTRADORES e OPERADORES podem gerenciar alunos!");
     }//GEN-LAST:event_btnGerenciarAlunosMouseClicked
 
     private void btnVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltar2MouseClicked
@@ -969,8 +1019,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltar2ActionPerformed
 
     private void btnGerenciarProfessoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerenciarProfessoresMouseClicked
-        panelMenuPrincipal.setVisible(false);
-        panelGerenciarProfessores.setVisible(true);
+        String usuarioLogin = inputUsuario.getText();
+        Usuario user = Usuario.usuarios.get(usuarioLogin.toLowerCase());
+        
+        if(user.getTipo().permUsuario(TipoUsuario.OPER)){
+            panelMenuPrincipal.setVisible(false);
+            panelGerenciarProfessores.setVisible(true);
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Somente ADMINISTRADORES e OPERADORES podem gerenciar professores!");
     }//GEN-LAST:event_btnGerenciarProfessoresMouseClicked
 
     private void btnVoltar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltar3MouseClicked
@@ -1044,7 +1101,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inputUsuarioAddUsuario.setText("");
         inputSenhaAddUsuario.setText("");
         
-        buttonGroup1.clearSelection(); //NÃO ESTA 'LIMPANDO' A SELEÇÃO DO BUTTONGROUP QUANDO CLICA EM VOLTAR
+        buttonGroup1.clearSelection();
         
         panelGerenciarUsuarios.setVisible(true);
     }//GEN-LAST:event_btnVoltar6MouseClicked
@@ -1095,6 +1152,47 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarProfessores.setVisible(false);
         panelAdicionarProfessores.setVisible(true);
     }//GEN-LAST:event_btnAdicionarProfessorMouseClicked
+
+    private void btnAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionarMouseClicked
+        String usuarioNome = inputNomeAddUsuario.getText();
+        String usuarioLogin = inputUsuarioAddUsuario.getText();
+        String usuarioSenha = String.valueOf(inputSenhaAddUsuario.getPassword());
+        String usuarioTipo = null;
+        
+        ButtonModel model = buttonGroup1.getSelection();
+        
+        if(model != null){
+            usuarioTipo = String.valueOf(model.getActionCommand());
+        }
+        
+        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);  
+    }//GEN-LAST:event_btnAdicionarMouseClicked
+
+    private void tipoOperAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoOperAddUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoOperAddUsuarioActionPerformed
+
+    private void tipoAdminAddUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAdminAddUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoAdminAddUsuarioActionPerformed
+
+    private void btnAdicionar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionar1MouseClicked
+        String usuarioNome = inputNomeAddAlunos.getText();
+        String usuarioLogin = inputUsuarioAddAlunos.getText();
+        String usuarioSenha = String.valueOf(inputSenhaAddAlunos.getPassword());
+        String usuarioTipo = String.valueOf(TipoUsuario.ALUNO);
+
+        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);  
+    }//GEN-LAST:event_btnAdicionar1MouseClicked
+
+    private void btnAdicionar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionar2MouseClicked
+        String usuarioNome = inputNomeAddProfessores.getText();
+        String usuarioLogin = inputUsuarioAddProfessores.getText();
+        String usuarioSenha = String.valueOf(inputSenhaAddProfessores.getPassword());
+        String usuarioTipo = String.valueOf(TipoUsuario.OPER);
+       
+        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);  
+    }//GEN-LAST:event_btnAdicionar2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1197,6 +1295,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel senhaLabel;
     private javax.swing.JLabel tipoAddUsuarioLabel;
     private javax.swing.JRadioButton tipoAdminAddUsuario;
+    private javax.swing.JRadioButton tipoAlunoAddUsuario;
     private javax.swing.JRadioButton tipoOperAddUsuario;
     private javax.swing.JLabel usuarioAddUsuarioAlunos;
     private javax.swing.JLabel usuarioAddUsuarioLabel;

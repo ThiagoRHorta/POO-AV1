@@ -511,7 +511,9 @@
                                   <Component id="tipoAdminAddUsuario" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="tipoOperAddUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="176" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="tipoAlunoAddUsuario" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -543,6 +545,7 @@
                       <Component id="tipoAddUsuarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tipoOperAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tipoAdminAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tipoAlunoAddUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -585,6 +588,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdicionarMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVoltar6">
           <Properties>
@@ -601,7 +607,11 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Oper"/>
+            <Property name="actionCommand" type="java.lang.String" value="OPER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoOperAddUsuarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="tipoAdminAddUsuario">
           <Properties>
@@ -609,6 +619,19 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Admin"/>
+            <Property name="actionCommand" type="java.lang.String" value="ADMIN"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoAdminAddUsuarioActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="tipoAlunoAddUsuario">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Aluno"/>
+            <Property name="actionCommand" type="java.lang.String" value="ALUNO"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -837,6 +860,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdicionar1MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVoltar7">
           <Properties>
@@ -1074,6 +1100,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdicionar2MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVoltar8">
           <Properties>

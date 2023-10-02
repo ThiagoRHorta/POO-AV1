@@ -55,5 +55,8 @@ public class Usuario {
         this.tipo = tipo;
     }
     
+    public static boolean usuarioExistente(String usuario){
+        return usuarios.containsKey(usuario.toLowerCase());
+    }
     
 }
