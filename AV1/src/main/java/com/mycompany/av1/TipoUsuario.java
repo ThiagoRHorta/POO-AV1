@@ -1,7 +1,7 @@
 package com.mycompany.av1;
 
 public enum TipoUsuario {
-    ADMIN(3), OPER(2), ALUNO(1);
+    ADMIN(3), PROFESSOR(2), ALUNO(1);
     public int tipo;
 
     TipoUsuario(int tipo){
