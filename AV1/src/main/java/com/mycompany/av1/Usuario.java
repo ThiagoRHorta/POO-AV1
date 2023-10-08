@@ -2,6 +2,7 @@ package com.mycompany.av1;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 public class Usuario {
     public static Map<String, Usuario> usuarios = new HashMap<>();
@@ -58,5 +59,6 @@ public class Usuario {
     public static boolean usuarioExistente(String usuario){
         return usuarios.containsKey(usuario.toLowerCase());
     }
+   
     
 }

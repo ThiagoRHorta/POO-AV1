@@ -8,6 +8,7 @@ import com.mycompany.av1.entidade.Usuario;
 
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -26,6 +27,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelAdicionarUsuarios.setVisible(false);
         panelAdicionarAlunos.setVisible(false);
         panelAdicionarProfessores.setVisible(false);
+        
+        panelListarUsuarios.setVisible(false);
+        
+        DefaultTableModel model = (DefaultTableModel) TableUsuarios.getModel();
+        Usuario.preencherJTable(model);
     }
 
     /**
@@ -50,6 +56,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnGerenciarAlunos = new javax.swing.JButton();
         btnGerenciarProfessores = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnListarUsuarios = new javax.swing.JButton();
         panelGerenciarUsuarios = new javax.swing.JPanel();
         btnAdicionarUsuario = new javax.swing.JButton();
         btnRemoverUsuario = new javax.swing.JButton();
@@ -114,20 +121,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inputDisciplinaAddProfessores = new javax.swing.JTextField();
         btnAdicionar2 = new javax.swing.JButton();
         btnVoltar8 = new javax.swing.JButton();
+        panelListarUsuarios = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableUsuarios = new javax.swing.JTable();
+        btnVoltar9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         usuarioLabel.setText("Usuario");
+        panelLogin.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 79, -1, -1));
 
         senhaLabel.setText("Senha");
+        panelLogin.add(senhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 113, 39, -1));
 
         inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputSenhaActionPerformed(evt);
             }
         });
+        panelLogin.add(inputSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 110, 227, -1));
+        panelLogin.add(inputUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 76, 227, -1));
 
         btnLogin.setText("Login");
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,52 +151,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnLoginMouseClicked(evt);
             }
         });
+        panelLogin.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 150, 88, -1));
 
         menuLabel.setFont(new java.awt.Font("Swis721 BT", 0, 12)); // NOI18N
         menuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuLabel.setText("Tela de Login");
         menuLabel.setToolTipText("");
-
-        javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
-        panelLogin.setLayout(panelLoginLayout);
-        panelLoginLayout.setHorizontalGroup(
-            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addComponent(usuarioLabel)
-                        .addGap(11, 11, 11))
-                    .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addComponent(senhaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inputUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(inputSenha))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
-        );
-        panelLoginLayout.setVerticalGroup(
-            panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuLabel)
-                .addGap(20, 20, 20)
-                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usuarioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senhaLabel))
-                .addGap(18, 18, 18)
-                .addComponent(btnLogin)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        panelLogin.add(menuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 42, 507, -1));
 
         panelMenuPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -232,6 +209,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnListarUsuarios.setText("Listar Usuários");
+        btnListarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarUsuariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuPrincipalLayout = new javax.swing.GroupLayout(panelMenuPrincipal);
         panelMenuPrincipal.setLayout(panelMenuPrincipalLayout);
         panelMenuPrincipalLayout.setHorizontalGroup(
@@ -239,16 +223,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
                 .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnGerenciarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnGerenciarAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnGerenciarProfessores)
+                            .addComponent(btnGerenciarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnListarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGerenciarAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGerenciarProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(156, 156, 156)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         panelMenuPrincipalLayout.setVerticalGroup(
             panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,11 +243,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGerenciarAlunos)
                     .addComponent(btnGerenciarUsuarios))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGerenciarProfessores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListarUsuarios)
+                    .addComponent(btnGerenciarProfessores))
+                .addGap(43, 43, 43)
                 .addComponent(btnLogout)
-                .addGap(29, 29, 29))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         btnAdicionarUsuario.setText("Adicionar Usuário");
@@ -295,27 +283,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarUsuariosLayout.setHorizontalGroup(
             panelGerenciarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarUsuariosLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
                 .addGroup(panelGerenciarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGerenciarUsuariosLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addComponent(btnAdicionarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btnRemoverUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGerenciarUsuariosLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
+                        .addGap(123, 123, 123)
                         .addComponent(btnVoltar)))
-                .addGap(36, 36, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         panelGerenciarUsuariosLayout.setVerticalGroup(
             panelGerenciarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarUsuariosLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(82, 82, 82)
                 .addGroup(panelGerenciarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionarUsuario)
                     .addComponent(btnRemoverUsuario))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         removerUsuarioLabel.setText("Usuário a ser removido");
@@ -353,7 +341,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(panelRemoverUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRemoverUsuariosLayout.createSequentialGroup()
                                 .addComponent(removerUsuarioLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE))
                             .addComponent(inputRemoverUsuario)
                             .addGroup(panelRemoverUsuariosLayout.createSequentialGroup()
                                 .addComponent(btnRemover)
@@ -435,14 +423,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelAdicionarUsuariosLayout.setHorizontalGroup(
             panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionarUsuariosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAdicionar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVoltar6)
-                .addGap(36, 36, 36))
-            .addGroup(panelAdicionarUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelAdicionarUsuariosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAdicionar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnVoltar6))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarUsuariosLayout.createSequentialGroup()
                         .addComponent(nomeAddUsuarioLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -464,7 +451,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(tipoProfessorAddUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tipoAlunoAddUsuario)
-                                .addGap(0, 91, Short.MAX_VALUE))))
+                                .addGap(0, 158, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionarUsuariosLayout.createSequentialGroup()
                         .addComponent(cursoDisciplinaAddUsuarioLabel)
                         .addGap(18, 18, 18)
@@ -497,11 +484,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cursoDisciplinaAddUsuarioLabel)
                     .addComponent(inputCursoDisciplinaAddUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelAdicionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionar)
                     .addComponent(btnVoltar6))
-                .addContainerGap())
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         btnAdicionarAluno.setText("Adicionar Aluno");
@@ -535,27 +522,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarAlunosLayout.setHorizontalGroup(
             panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGerenciarAlunosLayout.createSequentialGroup()
                         .addComponent(btnAdicionarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(btnRemoverAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(btnVoltar1)))
-                .addGap(0, 38, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGerenciarAlunosLayout.createSequentialGroup()
+                        .addComponent(btnVoltar1)
+                        .addGap(120, 120, 120)))
+                .addGap(87, 87, 87))
         );
         panelGerenciarAlunosLayout.setVerticalGroup(
             panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarAlunosLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(78, 78, 78)
                 .addGroup(panelGerenciarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionarAluno)
                     .addComponent(btnRemoverAluno))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar1)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(95, 95, 95))
         );
 
         removerAlunoLabel.setText("Usuário do aluno a ser removido");
@@ -583,33 +570,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelRemoverAlunos.setLayout(panelRemoverAlunosLayout);
         panelRemoverAlunosLayout.setHorizontalGroup(
             panelRemoverAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRemoverAlunosLayout.createSequentialGroup()
+            .addGroup(panelRemoverAlunosLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(panelRemoverAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelRemoverAlunosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRemoverAlunosLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(panelRemoverAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRemoverAlunosLayout.createSequentialGroup()
-                                .addComponent(removerAlunoLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE))
-                            .addComponent(inputRemoverAluno)
-                            .addGroup(panelRemoverAlunosLayout.createSequentialGroup()
-                                .addComponent(btnRemover1)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(35, 35, 35))
+                    .addComponent(btnVoltar4)
+                    .addGroup(panelRemoverAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(removerAlunoLabel)
+                        .addComponent(btnRemover1)
+                        .addComponent(inputRemoverAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         panelRemoverAlunosLayout.setVerticalGroup(
             panelRemoverAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRemoverAlunosLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(removerAlunoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputRemoverAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemover1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVoltar4)
                 .addGap(22, 22, 22))
         );
@@ -664,7 +644,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAdicionarAlunosLayout.createSequentialGroup()
                                 .addComponent(btnAdicionar1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                                 .addComponent(btnVoltar7))
                             .addComponent(inputSenhaAddAlunos, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(inputCursoAddAlunos))))
@@ -673,7 +653,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelAdicionarAlunosLayout.setVerticalGroup(
             panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionarAlunosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeAddUsuarioAlunos)
                     .addComponent(inputNomeAddAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -690,9 +670,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(inputCursoAddAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cursoAddUsuarioAlunos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelAdicionarAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVoltar7)
-                    .addComponent(btnAdicionar1))
+                .addComponent(btnAdicionar1)
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar7)
                 .addContainerGap())
         );
 
@@ -732,27 +712,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelGerenciarProfessoresLayout.setHorizontalGroup(
             panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
                 .addGroup(panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addComponent(btnAdicionarProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(btnRemoverProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
+                        .addGap(123, 123, 123)
                         .addComponent(btnVoltar2)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         panelGerenciarProfessoresLayout.setVerticalGroup(
             panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGerenciarProfessoresLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(75, 75, 75)
                 .addGroup(panelGerenciarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdicionarProfessor)
                     .addComponent(btnRemoverProfessor))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar2)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         removerProfessoresLabel.setText("Usuário do professor a ser removido");
@@ -790,7 +770,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(panelRemoverProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRemoverProfessoresLayout.createSequentialGroup()
                                 .addComponent(removerProfessoresLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE))
                             .addComponent(inputRemoverProfessores)
                             .addGroup(panelRemoverProfessoresLayout.createSequentialGroup()
                                 .addComponent(btnRemover2)
@@ -800,13 +780,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelRemoverProfessoresLayout.setVerticalGroup(
             panelRemoverProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRemoverProfessoresLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(removerProfessoresLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputRemoverProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemover2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addComponent(btnVoltar5)
                 .addGap(22, 22, 22))
         );
@@ -857,7 +837,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(disciplinaAddUsuarioProfessores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdicionar2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                        .addGap(203, 203, 203)
                         .addComponent(btnVoltar8))
                     .addGroup(panelAdicionarProfessoresLayout.createSequentialGroup()
                         .addComponent(senhaAddUsuarioProfessores)
@@ -873,7 +853,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelAdicionarProfessoresLayout.setVerticalGroup(
             panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionarProfessoresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeAddUsuarioProfessores)
                     .addComponent(inputNomeAddProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -890,10 +870,48 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(disciplinaAddUsuarioProfessores)
                     .addComponent(inputDisciplinaAddProfessores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAdicionarProfessoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionar2)
-                    .addComponent(btnVoltar8))
+                .addComponent(btnAdicionar2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVoltar8)
                 .addContainerGap())
+        );
+
+        TableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Matricula", "Nome", "Tipo", "Curso/Disciplina"
+            }
+        ));
+        jScrollPane1.setViewportView(TableUsuarios);
+
+        btnVoltar9.setText("Voltar");
+        btnVoltar9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelListarUsuariosLayout = new javax.swing.GroupLayout(panelListarUsuarios);
+        panelListarUsuarios.setLayout(panelListarUsuariosLayout);
+        panelListarUsuariosLayout.setHorizontalGroup(
+            panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarUsuariosLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelListarUsuariosLayout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(btnVoltar9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelListarUsuariosLayout.setVerticalGroup(
+            panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListarUsuariosLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVoltar9)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -942,6 +960,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(panelAdicionarProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelListarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -965,28 +988,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelRemoverAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(20, 20, 20)))
+                    .addComponent(panelRemoverAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelRemoverProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(20, 20, 20)))
+                    .addComponent(panelRemoverProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelAdicionarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(20, 20, 20)))
+                    .addComponent(panelAdicionarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelAdicionarAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(13, 13, 13)))
+                    .addComponent(panelAdicionarAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelAdicionarProfessores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelListarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1335,6 +1359,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cursoDisciplinaAddUsuarioLabel.setVisible(true);            
     }//GEN-LAST:event_tipoAlunoAddUsuarioActionPerformed
 
+    private void btnVoltar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar9ActionPerformed
+        panelListarUsuarios.setVisible(false);
+        panelMenuPrincipal.setVisible(true);
+    }//GEN-LAST:event_btnVoltar9ActionPerformed
+
+    private void btnListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarUsuariosActionPerformed
+            panelMenuPrincipal.setVisible(false);
+            panelListarUsuarios.setVisible(true);
+    }//GEN-LAST:event_btnListarUsuariosActionPerformed
+
     private Usuario removerUsuario(String nome) {
         if (nome == null || nome.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor preencha o nome do usuário!");
@@ -1387,6 +1421,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableUsuarios;
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnAdicionar1;
     private javax.swing.JButton btnAdicionar2;
@@ -1396,6 +1431,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnGerenciarAlunos;
     private javax.swing.JButton btnGerenciarProfessores;
     private javax.swing.JButton btnGerenciarUsuarios;
+    private javax.swing.JButton btnListarUsuarios;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRemover;
@@ -1413,6 +1449,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar6;
     private javax.swing.JButton btnVoltar7;
     private javax.swing.JButton btnVoltar8;
+    private javax.swing.JButton btnVoltar9;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel cursoAddUsuarioAlunos;
     private javax.swing.JLabel cursoDisciplinaAddUsuarioLabel;
@@ -1434,6 +1471,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField inputUsuarioAddAlunos;
     private javax.swing.JTextField inputUsuarioAddProfessores;
     private javax.swing.JTextField inputUsuarioAddUsuario;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JLabel nomeAddUsuarioAlunos;
     private javax.swing.JLabel nomeAddUsuarioLabel;
@@ -1444,6 +1482,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelGerenciarAlunos;
     private javax.swing.JPanel panelGerenciarProfessores;
     private javax.swing.JPanel panelGerenciarUsuarios;
+    private javax.swing.JPanel panelListarUsuarios;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMenuPrincipal;
     private javax.swing.JPanel panelRemoverAlunos;

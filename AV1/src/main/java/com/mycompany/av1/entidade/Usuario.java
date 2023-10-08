@@ -1,10 +1,12 @@
 package com.mycompany.av1.entidade;
 
 import com.mycompany.av1.TipoUsuario;
+import static com.mycompany.av1.Usuario.usuarios;
 import com.mycompany.av1.interfaces.EscreverArquivo;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 public abstract class Usuario implements EscreverArquivo {
     public static Map<String, Usuario> usuarios = new HashMap<>();
@@ -64,5 +66,21 @@ public abstract class Usuario implements EscreverArquivo {
 
     public static boolean usuarioExistente(String usuario){
         return usuarios.containsKey(usuario.toLowerCase());
+    }
+    
+    public static void preencherJTable(DefaultTableModel model) {
+        for (Usuario user : usuarios.values()) {
+            String value = "N/A";
+            if(user instanceof Aluno)
+                value = ((Aluno) user).getCurso();
+            else if(user instanceof Professor)
+                value = ((Professor) user).getDisciplina();
+            model.addRow(new Object[]{
+                user.getUsuario(),
+                user.getNome(),
+                user.getTipo().toString(),
+                value
+            });
+        }
     }
 }
