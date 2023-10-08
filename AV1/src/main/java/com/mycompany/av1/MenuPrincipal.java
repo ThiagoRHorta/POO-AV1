@@ -881,7 +881,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Matricula", "Nome", "Tipo", "Curso/Disciplina"
+                "Usuario", "Nome", "Tipo", "Curso/Disciplina"
             }
         ));
         jScrollPane1.setViewportView(TableUsuarios);
