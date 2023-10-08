@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 public abstract class Usuario implements EscreverArquivo {
     public static Map<String, Usuario> usuarios = new HashMap<>();
+    private static DefaultTableModel tableModel;
 
     private String nome;
     private String usuario;
@@ -24,6 +25,10 @@ public abstract class Usuario implements EscreverArquivo {
         usuarios.put(usuario.toLowerCase(), this);
     }
 
+    public static void setTableModel(DefaultTableModel model) {
+        tableModel = model;
+    }
+        
     public String getNome() {
         return nome;
     }
@@ -71,10 +76,15 @@ public abstract class Usuario implements EscreverArquivo {
     public static void preencherJTable(DefaultTableModel model) {
         for (Usuario user : usuarios.values()) {
             String value = "N/A";
-            if(user instanceof Aluno)
-                value = ((Aluno) user).getCurso();
-            else if(user instanceof Professor)
-                value = ((Professor) user).getDisciplina();
+
+            if(user instanceof Aluno) {
+                Aluno aluno = (Aluno) user;
+                value = aluno.getCurso();
+            } else if(user instanceof Professor) {
+                Professor professor = (Professor) user;
+                value = professor.getDisciplina();
+            }
+
             model.addRow(new Object[]{
                 user.getUsuario(),
                 user.getNome(),
@@ -83,4 +93,15 @@ public abstract class Usuario implements EscreverArquivo {
             });
         }
     }
+
+    public static void atualizarJTable() {
+        // Limpa todas as linhas da tabela
+        while (tableModel.getRowCount() > 0) {
+            tableModel.removeRow(0);
+        }
+        
+        // Preenche a tabela novamente
+        preencherJTable(tableModel);
+    }
+    
 }

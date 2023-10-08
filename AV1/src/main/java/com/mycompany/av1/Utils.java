@@ -40,7 +40,7 @@ public class Utils {
             }   
             
             if(Usuario.usuarioExistente(user)){
-                JOptionPane.showMessageDialog(null, "O usuário já está cadastrado!");  
+                JOptionPane.showMessageDialog(null, "O usuário já está cadastrado!"); 
                 return;
             }
 
@@ -54,6 +54,8 @@ public class Utils {
             bufferedWriter.write(nome + "," + user + "," + senha + "," + tipo);
 
             bufferedWriter.close();
+            
+            Usuario.atualizarJTable();
             
             JOptionPane.showMessageDialog(null, "Usuário "+user+" registrado com sucesso"); 
         } catch (IOException e) {
@@ -75,8 +77,8 @@ public class Utils {
                     throw new RuntimeException(ex);
                 }
             });
-
             bufferedWriter.close();
+            Usuario.atualizarJTable();
             JOptionPane.showMessageDialog(null, "Usuário " + nomeUsuario + " removido com sucesso!");
         } catch (IOException ex) {
             ex.printStackTrace();

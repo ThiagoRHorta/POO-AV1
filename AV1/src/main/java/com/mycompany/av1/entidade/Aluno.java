@@ -48,7 +48,7 @@ public class Aluno extends Usuario {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             bufferedWriter.write(this.getUsuario() + "," + this.curso);
-
+            bufferedWriter.newLine();
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,5 +58,6 @@ public class Aluno extends Usuario {
     public void remover() {
         String chave = this.getUsuario() + "," + this.curso;
         Utils.removerLinha(new File(FILE_PATH), chave);
+        Usuario.atualizarJTable();
     }
 }

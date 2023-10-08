@@ -14,6 +14,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        DefaultTableModel model = (DefaultTableModel) TableUsuarios.getModel();
+        Usuario.setTableModel(model); 
+        Usuario.atualizarJTable(); 
         panelMenuPrincipal.setVisible(false);
         
         panelGerenciarUsuarios.setVisible(false);
@@ -30,8 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         panelListarUsuarios.setVisible(false);
         
-        DefaultTableModel model = (DefaultTableModel) TableUsuarios.getModel();
-        Usuario.preencherJTable(model);
+
     }
 
     /**
@@ -376,6 +378,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdicionarMouseClicked(evt);
+            }
+        });
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
             }
         });
 
@@ -1368,6 +1375,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             panelMenuPrincipal.setVisible(false);
             panelListarUsuarios.setVisible(true);
     }//GEN-LAST:event_btnListarUsuariosActionPerformed
+
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private Usuario removerUsuario(String nome) {
         if (nome == null || nome.isEmpty()) {

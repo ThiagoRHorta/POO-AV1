@@ -1,4 +1,6 @@
-admin,admin,123,ADMIN
-aluno1,user1,senha1,ALUNO
-aluno2,user2,senha2,ALUNO
+JOAO,JOAO,JOAO,ADMIN
+TESTEAISAUIBSIBUA2,TESTEAISAUIBSIBUA2,TESTEAISAUIBSIBUA2,PROFESSOR
+hgahaha,hgahaha,hgahaha,ADMIN
 professor1,prof1,pass1,PROFESSOR
+
+teste,teste,teste,PROFESSOR
