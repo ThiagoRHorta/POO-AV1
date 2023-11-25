@@ -5,6 +5,7 @@ import static com.mycompany.av1.TipoUsuario.PROFESSOR;
 import com.mycompany.av1.entidade.Aluno;
 import com.mycompany.av1.entidade.Professor;
 import com.mycompany.av1.entidade.Usuario;
+import java.util.ArrayList;
 
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
@@ -1030,8 +1031,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         String usuarioLogin = inputUsuario.getText();
         String usuarioSenha = String.valueOf(inputSenha.getPassword());
-        
-        Usuario user = Usuario.usuarios.get(usuarioLogin.toLowerCase());
+        ArrayList users = new ArrayList<String>();
+        users.add("login");
+        users.add(usuarioLogin);
+        users.add(usuarioSenha);
+        Usuario user = (Usuario) Cliente.SendAllMessages(users);
+        //Usuario user = Usuario.usuarios.get(usuarioLogin.toLowerCase());
         if(user == null){
             JOptionPane.showMessageDialog(null, "Usuario Inexistente!");
             return;
@@ -1262,12 +1267,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         if(model != null){
             usuarioTipo = String.valueOf(model.getActionCommand());
         }
-        
-        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);
+        ArrayList list = new ArrayList();
+        list.add("registrarusuario");
+        list.add(usuarioNome);
+        list.add(usuarioLogin);
+        list.add(usuarioSenha);
+        list.add(usuarioTipo);
+        System.out.println(Cliente.SendAllMessages(list));
         Usuario usuarios = Usuario.usuarios.get(usuarioLogin.toLowerCase());
         
         switch (usuarioTipo) {
             case "ALUNO":
+                //Precisa resolver o erro
+                //Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException:
+                //Cannot invoke "com.mycompany.av1.entidade.Aluno.setCurso(String)" because "usuarios" is null
+                //Não esta carregando o usuarios
                 ((Aluno) usuarios).setCurso(usuarioCursoDisciplina);
                 break;                
             case "PROFESSOR":
@@ -1289,7 +1303,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         String usuarioTipo = String.valueOf(TipoUsuario.ALUNO);
         String usuarioCurso = inputCursoAddAlunos.getText();
 
-        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);
+        ArrayList list = new ArrayList();
+        list.add("registrarusuario");
+        list.add(usuarioNome);
+        list.add(usuarioLogin);
+        list.add(usuarioSenha);
+        list.add(usuarioTipo);
+        System.out.println(Cliente.SendAllMessages(list));
 
         Aluno usuario = (Aluno) Usuario.usuarios.get(usuarioLogin.toLowerCase());
         usuario.setCurso(usuarioCurso);
@@ -1303,7 +1323,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         String usuarioTipo = String.valueOf(TipoUsuario.PROFESSOR);
         String usuarioDisciplina = inputDisciplinaAddProfessores.getText();
        
-        Utils.registrarUsuario(usuarioNome,usuarioLogin,usuarioSenha,usuarioTipo);
+        ArrayList list = new ArrayList();
+        list.add("registrarusuario");
+        list.add(usuarioNome);
+        list.add(usuarioLogin);
+        list.add(usuarioSenha);
+        list.add(usuarioTipo);
+        System.out.println(Cliente.SendAllMessages(list));
 
         Professor usuario = (Professor) Usuario.usuarios.get(usuarioLogin.toLowerCase());
         usuario.setDisciplina(usuarioDisciplina);

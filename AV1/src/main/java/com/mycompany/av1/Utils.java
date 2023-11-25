@@ -4,6 +4,7 @@ import com.mycompany.av1.entidade.Admin;
 import com.mycompany.av1.entidade.Aluno;
 import com.mycompany.av1.entidade.Professor;
 import com.mycompany.av1.entidade.Usuario;
+import static com.mycompany.av1.entidade.Usuario.usuarios;
 
 import java.io.*;
 import javax.swing.JOptionPane;
@@ -30,6 +31,24 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static Usuario login(String username, String password) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String linha;
+            
+            while ((linha = br.readLine()) != null) {
+                String[] values = linha.split(",");
+                if (values.length == 4 && values[1].equalsIgnoreCase(username) && values[2].equals(password)) {
+                    Usuario user = getUser(values[0], values[1], values[2], TipoUsuario.valueOf(values[3]));
+                    Usuario.usuarios.put(user.getUsuario().toLowerCase(), user);
+                    return user;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar login" + e);
+        }
+        return null;
     }
     
     public static void registrarUsuario(String nome, String user, String senha, String tipo) {

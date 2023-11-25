@@ -7,8 +7,9 @@ import com.mycompany.av1.interfaces.EscreverArquivo;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import java.io.Serializable;
 
-public abstract class Usuario implements EscreverArquivo {
+public abstract class Usuario implements EscreverArquivo, Serializable {
     public static Map<String, Usuario> usuarios = new HashMap<>();
     private static DefaultTableModel tableModel;
 
